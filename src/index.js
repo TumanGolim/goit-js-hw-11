@@ -6,7 +6,6 @@ import {
   displayNotification,
   displayImages,
 } from './dom';
-import { createPhotoCard, appendPhotoCardToGallery } from './gallery';
 
 const form = document.getElementById('search-form');
 const searchInput = form.querySelector('input[name="searchQuery"]');
@@ -55,4 +54,3 @@ loadMoreBtn.addEventListener('click', async () => {
     lightbox.refresh();
   }
 });
-
