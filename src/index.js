@@ -13,9 +13,10 @@ const searchInput = form.querySelector('input[name="searchQuery"]');
 const loadMoreBtn = document.querySelector('.load-more');
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  sourceAttr: 'href', // Выбираем атрибут, по которому будет открываться изображение
-  captionsData: false, // Отключаем подписи к изображениям
-  nav: true, // Включаем навигацию (показ стрелок для переключения изображений)
+  sourceAttr: 'href',
+  captionsData: false,
+  nav: true,
+  centerContent: true,
 });
 let page = 1;
 const perPage = 40;
@@ -54,3 +55,4 @@ loadMoreBtn.addEventListener('click', async () => {
     lightbox.refresh();
   }
 });
+
