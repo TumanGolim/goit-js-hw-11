@@ -89,7 +89,7 @@ body {
 .sl-prev {
   position: fixed;
   top: 50%;
-  left: 150px;
+  left: 100px;
   color: black;
   width: 30px;
   height: 60px;
@@ -101,7 +101,7 @@ body {
 .sl-next {
   position: fixed;
   top: 50%;
-  right: 150px;
+  right: 100px;
   color: black;
   width: 30px;
   height: 60px;
