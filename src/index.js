@@ -4,6 +4,7 @@ import {
   clearGallery,
   updateLoadMoreBtnVisibility,
   displayNotification,
+  displayImages,
 } from './dom';
 import { createPhotoCard, appendPhotoCardToGallery } from './gallery';
 
@@ -11,7 +12,11 @@ const form = document.getElementById('search-form');
 const searchInput = form.querySelector('input[name="searchQuery"]');
 const loadMoreBtn = document.querySelector('.load-more');
 
-const lightbox = new SimpleLightbox('.gallery a');
+const lightbox = new SimpleLightbox('.gallery a', {
+  sourceAttr: 'href', // Выбираем атрибут, по которому будет открываться изображение
+  captionsData: false, // Отключаем подписи к изображениям
+  nav: true, // Включаем навигацию (показ стрелок для переключения изображений)
+});
 let page = 1;
 const perPage = 40;
 let currentSearchQuery = '';
@@ -34,10 +39,7 @@ form.addEventListener('submit', async e => {
       'success',
       `Hooray! We found ${data.totalHits} images.`
     );
-    data.hits.forEach(image => {
-      const photoCard = createPhotoCard(image);
-      appendPhotoCardToGallery(photoCard, image.largeImageURL);
-    });
+    displayImages(data.hits);
     page += 1;
     updateLoadMoreBtnVisibility(true);
     lightbox.refresh();
@@ -46,10 +48,9 @@ form.addEventListener('submit', async e => {
 
 loadMoreBtn.addEventListener('click', async () => {
   const data = await fetchImages(currentSearchQuery, page, perPage);
-  data.hits.forEach(image => {
-    const photoCard = createPhotoCard(image);
-    appendPhotoCardToGallery(photoCard, image.largeImageURL);
-  });
-  page += 1;
-  lightbox.refresh();
+  if (data.hits.length > 0) {
+    displayImages(data.hits);
+    page += 1;
+    lightbox.refresh();
+  }
 });
