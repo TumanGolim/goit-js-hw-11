@@ -25,9 +25,13 @@ body {
 
 .simple-lightbox {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   order: 1;
 }
 
@@ -80,4 +84,45 @@ body {
   height: 50px;
   margin: 0 70px 0 20px;
   color: #000;
+}
+
+.sl-prev {
+  position: fixed;
+  top: 50%;
+  left: 150px;
+  color: black;
+  width: 30px;
+  height: 60px;
+  border: 0 none;
+  background: transparent;
+  font-size: 3rem;
+}
+
+.sl-next {
+  position: fixed;
+  top: 50%;
+  right: 150px;
+  color: black;
+  width: 30px;
+  height: 60px;
+  border: 0 none;
+  background: transparent;
+  font-size: 3rem;
+}
+.sl-close {
+  position: fixed;
+  top: 30px;
+  right: 10px;
+  font-family: Arial, Baskerville, monospace;
+  color: #000;
+  font-size: 3rem;
+  border: 0 none;
+  background: transparent;
+}
+
+.sl-counter {
+  position: fixed;
+  top: 50px;
+  left: 20px;
+  font-size: 1rem;
 }
