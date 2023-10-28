@@ -58,6 +58,8 @@ body {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   padding: 10px;
   background-color: #f5f5f5;
+  border-bottom-left-radius: 10px; /* Радіус закруглення для лівого нижнього кута */
+  border-bottom-right-radius: 10px;
 }
 
 .info-item {
